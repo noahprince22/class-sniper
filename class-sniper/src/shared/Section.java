@@ -29,14 +29,14 @@ public class Section {
 	/**
 	 * @return the time
 	 */
-	public CourseTime getTime() {
+	public SectionTime getTime() {
 		return time;
 	}
 
 	/**
 	 * @return the type
 	 */
-	public CourseType getType() {
+	public SectionType getType() {
 		return type;
 	}
 
@@ -55,8 +55,8 @@ public class Section {
 	}
 	
 	private String CRN; // Using a String because not all universities will use an integer identifier. 
-	private CourseTime time;
-	private CourseType type;
+	private SectionTime time;
+	private SectionType type;
 	private String prof;
 	private String location;
 	private List<Section> linked;

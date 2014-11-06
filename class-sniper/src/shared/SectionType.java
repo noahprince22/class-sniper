@@ -1,5 +1,5 @@
 package shared;
 
-public enum CourseType {
+public enum SectionType {
 	DISCUSSION,LECTURE,LAB
 }
