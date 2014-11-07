@@ -1,21 +1,29 @@
-/**
- * 
- */
 package shared;
 
 import java.util.Collections;
 import java.util.List;
 
 /**
- * @author noah
+ * @author noah, goldylocks
  *
  */
-public class Course{
+public class Course {
+	
+	private Department department;
+	private int courseNumber;
+	private Collection<Section> sections;
+
+	public Course(Department department, int courseNumber, Collection<Section> sections) {
+		this.department = department;
+		this.courseNumber = courseNumber;
+		this.sections = sections;
+	}
+	
 	/**
 	 * @return a read only list of the sections
 	 */
-	public List<Section> getSections() {
-		List<Section> readOnly = Collections.unmodifiableList(sections);	
+	public Collection<Section> getSections() {
+		Collection<Section> readOnly = Collections.unmodifiableList(sections);
 		return readOnly;
 	}
 
@@ -32,8 +40,4 @@ public class Course{
 	public int getCourseNumber() {
 		return courseNumber;
 	}
-	
-	private Department department;
-	private int courseNumber;
-	private List<Section> sections;
 }

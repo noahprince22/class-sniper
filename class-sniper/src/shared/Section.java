@@ -3,6 +3,7 @@
  */
 package shared;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,19 +12,49 @@ import java.util.List;
  *
  */
 public class Section {
+	
+	private String crn; // Using a String because not all universities will use an integer identifier. 
+	private SectionTime time;
+	private SectionType type;
+	private String professor;
+	private String location;
+	private Collection<Section> linkedSections = ;
+	
+	public Section(String crn, SectionTime time, SectionType type, String professor, String location, Section linkedSections...) {
+		this.crn = crn;
+		this.time = time;
+		this.type = type;
+		this.professor = professor;
+		this.location = location;
+		this.linkedSections = new ArrayList<Section>(linkedSections);
+	}
+	
+	public Section(String crn, SectionTime time, SectionType type, String professor, String location) {
+		this.crn = crn;
+		this.time = time;
+		this.type = type;
+		this.professor = professor;
+		this.location = location;
+	}
+	
+	public void addLinkedSection(Section section) {
+		if(!linkedSections.contains(section))
+			linkedSections.add(sections);
+	}
+	
 	/**
 	 * @return a read only list of sections
 	 */
-	public List<Section> getLinkedSections() {
-		List<Section> readOnly = Collections.unmodifiableList(linked);	
+	public Collection<Section> getLinkedSections() {
+		List<Section> readOnly = Collections.unmodifiableList(linkedSections);	
 		return readOnly;
 	}
 	
 	/**
 	 * @return the CRN
 	 */
-	public String getCRN() {
-		return CRN;
+	public String getCrn() {
+		return crn;
 	}
 	
 	/**
@@ -41,10 +72,10 @@ public class Section {
 	}
 
 	/**
-	 * @return the prof
+	 * @return the professor
 	 */
-	public String getProf() {
-		return prof;
+	public String getProfessor() {
+		return professor;
 	}
 
 	/**
@@ -54,10 +85,4 @@ public class Section {
 		return location;
 	}
 	
-	private String CRN; // Using a String because not all universities will use an integer identifier. 
-	private SectionTime time;
-	private SectionType type;
-	private String prof;
-	private String location;
-	private List<Section> linked;
 }
