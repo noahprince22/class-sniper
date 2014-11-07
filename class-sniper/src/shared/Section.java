@@ -3,6 +3,7 @@
  */
 package shared;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -18,14 +19,10 @@ public class Section {
 	private SectionType type;
 	private String professor;
 	private String location;
-	private Collection<Section> linkedSections = ;
+	private Collection<Section> linkedSections;
 	
-	public Section(String crn, SectionTime time, SectionType type, String professor, String location, Section linkedSections...) {
-		this.crn = crn;
-		this.time = time;
-		this.type = type;
-		this.professor = professor;
-		this.location = location;
+	public Section(String crn, SectionTime time, SectionType type, String professor, String location, Collection<Section> linkedSections) {
+		this(crn,time,type,professor,location);
 		this.linkedSections = new ArrayList<Section>(linkedSections);
 	}
 	
@@ -39,15 +36,14 @@ public class Section {
 	
 	public void addLinkedSection(Section section) {
 		if(!linkedSections.contains(section))
-			linkedSections.add(sections);
+			linkedSections.add(section);
 	}
 	
 	/**
 	 * @return a read only list of sections
 	 */
 	public Collection<Section> getLinkedSections() {
-		List<Section> readOnly = Collections.unmodifiableList(linkedSections);	
-		return readOnly;
+		return linkedSections;
 	}
 	
 	/**

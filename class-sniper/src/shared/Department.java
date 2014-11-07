@@ -10,7 +10,7 @@ public enum Department {
 	ADV,
 	AE,
 	AFAS,
-	AFRO
+	AFRO,
 	AFST,
 	AGCM,
 	AGED,

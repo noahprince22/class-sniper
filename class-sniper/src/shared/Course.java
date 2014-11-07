@@ -1,5 +1,6 @@
 package shared;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class Course {
 	 * @return a read only list of the sections
 	 */
 	public Collection<Section> getSections() {
-		Collection<Section> readOnly = Collections.unmodifiableList(sections);
+		Collection<Section> readOnly = Collections.unmodifiableCollection(sections);
 		return readOnly;
 	}
 
